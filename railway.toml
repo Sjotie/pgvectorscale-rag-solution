@@ -3,6 +3,10 @@ builder = "DOCKERFILE"
 dockerfilePath = "docker/docker-compose.yml"
 
 [deploy]
-startCommand = "docker compose up -d"
+startCommand = "cd docker && docker compose up -d"
 restartPolicyType = "ON_FAILURE"
 numReplicas = 1
+
+[[deploy.volumes]]
+path = "/var/lib/postgresql/data"
+size = "5"
