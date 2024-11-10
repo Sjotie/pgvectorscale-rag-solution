@@ -1,9 +1,7 @@
 [build]
 builder = "DOCKERFILE"
-dockerfilePath = "docker/docker-compose.yml"
 
 [deploy]
-startCommand = "cd docker && docker compose up -d"
 restartPolicyType = "ON_FAILURE"
 numReplicas = 1
 
