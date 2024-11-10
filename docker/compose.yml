@@ -1,4 +1,3 @@
-name: timescaledb
 services:
   timescaledb:
     image: timescale/timescaledb-ha:pg16
