@@ -1,3 +1,4 @@
+# docker/docker-compose.yml
 services:
   timescaledb:
     image: timescale/timescaledb-ha:pg16
@@ -5,6 +6,8 @@ services:
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGPORT=5432  # Explicitly set the port
+    command: postgres --port=5432  # Add command override
     ports:
       - "5432:5432"
     restart: unless-stopped
