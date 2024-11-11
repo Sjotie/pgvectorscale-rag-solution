@@ -2,8 +2,8 @@
 builder = "DOCKERFILE"
 
 [deploy]
+startCommand = "unset PGPORT; docker-entrypoint.sh postgres --port=5432"
 restartPolicyType = "ON_FAILURE"
-numReplicas = 1
 
 [[deploy.volumes]]
 path = "/var/lib/postgresql/data"
