@@ -2,7 +2,6 @@
 builder = "DOCKERFILE"
 
 [deploy]
-startCommand = "unset PGPORT; postgres --port=5432"
 restartPolicyType = "ON_FAILURE"
 
 [[deploy.volumes]]
