@@ -1,9 +1,8 @@
 [build]
 builder = "DOCKERFILE"
-dockerfilePath = "docker/compose.yml"
 
 [deploy]
-startCommand = "cd docker && unset PGPORT && docker compose up -d"
+startCommand = "unset PGPORT; postgres --port=5432"
 restartPolicyType = "ON_FAILURE"
 
 [[deploy.volumes]]
