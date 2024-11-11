@@ -1,9 +1,11 @@
 #!/bin/bash
 set -e
 
-# Railway-specific: unset these to allow proper initialization
 unset PGHOST
 unset PGPORT
 
-# Call the entrypoint with all arguments
-/docker-entrypoint.sh "$@"
+if [[ "$LOG_TO_STDOUT" == "true" ]]; then
+    /usr/local/bin/docker-entrypoint.sh "$@" 2>&1
+else
+    /usr/local/bin/docker-entrypoint.sh "$@"
+fi
